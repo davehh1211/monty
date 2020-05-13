@@ -1,25 +1,19 @@
 #include "monty.h"
 /*
-*
-*
+* optacodevalid - dictionary of opcodes.
+* @opcode: string to compare
+* @stack: list to evaluate
+* @line_number: number of line of command
+* Return: nothing
 */
-void optacodevalid(char *opcode, unsigned int line_number)
+void optacodevalid(char *opcode, unsigned int line_number,
+stack_t **stack)
 {
-	stack_t **stack = NULL;
+	/*stack_t **stack = NULL;*/
 	int i = 0, flag = 0;
 	instruction_t opexist[] = {
 			{"push", o_push},
 			{"pall", o_pall},
-			/*{"pint", o_pint},
-			{"pop", o_pop},
-			{"swap", o_swap},
-			{"add", o_add},
-			{"nop", o_nop},
-			{"sub", o_sub},
-			{"div", o_div},
-			{"mul", o_mul},
-			{"mod", o_mod},
-			{"pchar", o_pchar},*/
 			{NULL, NULL}
 		};
 
@@ -33,7 +27,8 @@ void optacodevalid(char *opcode, unsigned int line_number)
 	}
 	if (flag == 0)
 	{
-		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", line_number, opcode); /*<> */
+		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n",
+		line_number, opcode); /*<> */
 		exit(EXIT_FAILURE);
 	}
 }
