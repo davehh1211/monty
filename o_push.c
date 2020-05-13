@@ -11,11 +11,11 @@ void o_push(stack_t **stack, unsigned int line_number)
 	stack_t *newnode;
 	int digit;
 
-	digit = atoi(strtok(NULL, "\t\n\r "));
-	if(digit == '\0')
+	digit = atoi(strtok(NULL, "\t\n "));
+	if (digit == '\0')
 	{
 		dprintf(STDERR_FILENO, "L%u: usage: push integer", line_number);
-		exit(EXIT_FAILURE); 
+		exit(EXIT_FAILURE);
 	}
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
