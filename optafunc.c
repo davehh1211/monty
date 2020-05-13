@@ -3,7 +3,7 @@
 *
 *
 */
-void optacodevalid(char *token, stack_t **stack, unsigned int line_number )
+void optacodevalid(char **token, stack_t **stack, unsigned int line_number )
 {
 instruction_t optaexist[] = {
 		{"push", o_push},
@@ -23,7 +23,8 @@ instruction_t optaexist[] = {
 
 for (i = 0; optaexist[i].opcode != NULL; i++)
 {
-	if (token == optaexist[i].opcode)
+	for (j = 0; token)
+	if (token[i] == optaexist[i].opcode)
 	{
 		return (optaexit[i].(*f)( **stack, line_number);)
 	}
