@@ -1,10 +1,9 @@
 #include "monty.h"
- 
 /**
- * main - 
- * @argc:
- * @argv:
- * Return: 
+ * main - Monty interpreter language
+ * @argc: number of arguments
+ * @argv: string of arguments
+ * Return: 0 in success, 1 in failure
  */
 int main(int argc, char *argv[])
 {
@@ -12,7 +11,7 @@ int main(int argc, char *argv[])
 	unsigned int line_number = 0;
 	char *buffer = NULL, *opcode = NULL;
 	size_t len = 0;
-	/*stack_t **stack = NULL;*/
+	stack_t *stack = NULL;
 
 	if (argc != 2)
 	{
@@ -28,11 +27,9 @@ int main(int argc, char *argv[])
 	while (getline(&buffer, &len, file) != -1)
 	{
 		opcode = strtok(buffer, "\t\n ");
-		/*num = atoi(strtok(NULL, "\n\t "));*/
 		line_number++;
-		/*printf("%s - %s\n", opcode, num);*/
 		if (opcode != NULL)
-			optacodevalid(opcode, line_number);
+			optacodevalid(opcode, line_number, &stack); /**/
 	}
 	/*free(file); This free is neccessary but it send us some errors*/
 	free(buffer);
