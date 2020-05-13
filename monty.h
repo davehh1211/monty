@@ -39,8 +39,9 @@ typedef struct instruction_s
 extern int num;
 
 void *_calloc(unsigned int nmemb, unsigned int size);
-void optacodevalid(char *opcode, unsigned int line_number);
+void optacodevalid(char *opcode, unsigned int line_number, stack_t **stack); /**/
 void o_push(stack_t **stack, unsigned int line_number);
 void o_pall(stack_t **stack, unsigned int line_number);
+void o_pop(stack_t **stack, unsigned int line_number);
 
 #endif

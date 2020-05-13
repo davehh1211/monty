@@ -3,7 +3,7 @@
  * o_pall - print the stack from the beginning to the end
  * @stack: stack to be printed
  * @line_number: var not used.
- * Return: nothing 
+ * Return: nothing
  */
 void o_pall(stack_t **stack, unsigned int line_number)
 {
@@ -13,7 +13,7 @@ void o_pall(stack_t **stack, unsigned int line_number)
 
 	for (i = 0; *stack != NULL; i++)
 	{
-		printf("%i\n", (*stack)->n);
+		printf("%d\n", (*stack)->n);
 		*stack = (*stack)->next;
 	}
 }
