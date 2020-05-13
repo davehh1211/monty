@@ -3,13 +3,14 @@
 *
 *
 */
-void optacodevalid(char *opcode, char *num, unsigned int line_number)
+void optacodevalid(char *opcode, unsigned int line_number)
 {
-	stack_t **stack;
+	stack_t **stack = NULL;
+	int i = 0, flag = 0;
 	instruction_t opexist[] = {
 			{"push", o_push},
 			{"pall", o_pall},
-			{"pint", o_pint},
+			/*{"pint", o_pint},
 			{"pop", o_pop},
 			{"swap", o_swap},
 			{"add", o_add},
@@ -18,18 +19,21 @@ void optacodevalid(char *opcode, char *num, unsigned int line_number)
 			{"div", o_div},
 			{"mul", o_mul},
 			{"mod", o_mod},
-			{"pchar", o_pchar},
+			{"pchar", o_pchar},*/
 			{NULL, NULL}
 		};
 
 	for (i = 0; opexist[i].opcode != NULL; i++)
 	{
-		if (opcode == opexist[i].opcode)
+		if (strcmp(opcode, opexist[i].opcode) == 0)
 		{
-			stack->n = atoi(num);
-			return (opexit[i].(*f)(stack, line_number))
+			opexist[i].f(stack, line_number);
+			flag++;
 		}
 	}
-	dprintf(STDOUT_FILENO, "L%d: unknown instruction %s", line_number, opcode);/* <> */
-	exit(EXIT_FAILURE);
+	if (flag == 0)
+	{
+		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", line_number, opcode); /*<> */
+		exit(EXIT_FAILURE);
+	}
 }
