@@ -1,10 +1,10 @@
-#ifndef MONTYHOLBERTON
-#define MONTYHOLBERTON
+#ifndef MONTY_
+#define MONTY_
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unitsd.h>
+#include <unistd.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -36,4 +36,11 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-#endif // !MONTYHOLBERTON
+extern int num;
+
+void *_calloc(unsigned int nmemb, unsigned int size);
+void optacodevalid(char *opcode, unsigned int line_number);
+void o_push(stack_t **stack, unsigned int line_number);
+void o_pall(stack_t **stack, unsigned int line_number);
+
+#endif
