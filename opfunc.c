@@ -1,7 +1,7 @@
 #include "monty.h"
 /*
 * optacodevalid - dictionary of opcodes.
-* @opcode: string to  compare
+* @opcode: string to compare
 * @stack: list to evaluate
 * @line_number: number of line of command
 * Return: nothing
