@@ -37,10 +37,25 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern int num;
+/**
+ * struct free_s - free the var noted
+ * @file: file opened
+ * @buffer: buffer of getline
+ *
+ * Description: file and buffer
+ * for stack, queues, LIFO, FIFO Holberton project
+ */
+typedef struct free_s
+{
+	FILE *file;
+	char *buffer;
+} free_t;
+
+extern free_t var_global;
 
 void *_calloc(unsigned int nmemb, unsigned int size);
-void optacodevalid(char *opcode, unsigned int line_number, stack_t **stack);
+void optacodevalid(char *opcode, unsigned int line_number,
+stack_t **stack);
 void o_push(stack_t **stack, unsigned int line_number);
 void o_pall(stack_t **stack, unsigned int line_number);
 void o_pop(stack_t **stack, unsigned int line_number);
