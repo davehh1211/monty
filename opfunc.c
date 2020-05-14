@@ -13,8 +13,11 @@ stack_t **stack)
 	instruction_t opexist[] = {
 			{"push", o_push},
 			{"pall", o_pall},
+			{"pint", o_pint},
 			{"pop", o_pop},
-			{"nop", o_pop},
+			{"swap", o_swap},
+			{"add", o_add},
+			{"nop", o_nop},
 			{NULL, NULL}
 		};
 
