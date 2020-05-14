@@ -36,12 +36,13 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern int num;
+
+extern int num;/* qué variable debemos de utilizar? */
+
 
 void *_calloc(unsigned int nmemb, unsigned int size);
-void optacodevalid(char *opcode, unsigned int line_number, stack_t **stack); /**/
+void opcodevalid(char *opcode, unsigned int line_number, stack_t **stack);
 void o_push(stack_t **stack, unsigned int line_number);
 void o_pall(stack_t **stack, unsigned int line_number);
-void o_pop(stack_t **stack, unsigned int line_number);
 
 #endif

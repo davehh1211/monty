@@ -6,10 +6,8 @@
 * @line_number: number of line of command
 * Return: nothing
 */
-void optacodevalid(char *opcode, unsigned int line_number,
-stack_t **stack)
+void opcodevalid(char *opcode, unsigned int line_number, stack_t **stack)
 {
-	/*stack_t **stack = NULL;*/
 	int i = 0, flag = 0;
 	instruction_t opexist[] = {
 			{"push", o_push},

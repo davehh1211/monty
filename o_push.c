@@ -9,10 +9,8 @@
 void o_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newnode;
-	int digit;
 
-	digit = atoi(strtok(NULL, "\t\n "));
-	if (digit == '\0')
+	if (num == -1)
 	{
 		dprintf(STDERR_FILENO, "L%u: usage: push integer", line_number);
 		exit(EXIT_FAILURE);
@@ -23,8 +21,8 @@ void o_push(stack_t **stack, unsigned int line_number)
 		dprintf(STDERR_FILENO, "Error: malloc failed");
 		exit(EXIT_FAILURE);
 	}
-	/*printf("%s\n", digit);*/
-	newnode->n = digit;
+	/*printf("%d\n", num);*/
+	newnode->n = num;
 	newnode->next = *stack;
 	newnode->prev = NULL;
 	if (*stack != NULL)

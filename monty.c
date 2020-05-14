@@ -3,8 +3,11 @@
  * main - Monty interpreter language
  * @argc: number of arguments
  * @argv: string of arguments
- * Return: 0 in success, 1 in failure
+ * Return: 
  */
+
+int num = 0;
+
 int main(int argc, char *argv[])
 {
 	FILE *file = NULL;
@@ -27,9 +30,16 @@ int main(int argc, char *argv[])
 	while (getline(&buffer, &len, file) != -1)
 	{
 		opcode = strtok(buffer, "\t\n ");
+		if (atoi(strtok(NULL, "\t\n ")) < 0)
+			num = -1 * atoi(strtok(NULL, "\t\n "));
+		else if (atoi(strtok(NULL, "\t\n ")) >= 0)
+			num = atoi(strtok(NULL, "\t\n "));
+		else
+			num = -1;
 		line_number++;
+		printf("%d", num);
 		if (opcode != NULL)
-			optacodevalid(opcode, line_number, &stack); /**/
+			opcodevalid(opcode, line_number, &stack); /**/
 	}
 	/*free(file); This free is neccessary but it send us some errors*/
 	free(buffer);
