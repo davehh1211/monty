@@ -9,22 +9,23 @@
 void o_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newnode;
-	int digit;
+	char *digit;
+	int num;
 
-	digit = atoi(strtok(NULL, "\t\n "));
-	if (digit == '\0')
+	digit = strtok(NULL, "\t\n ");
+	if (digit == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%u: usage: push integer", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	/*printf("%s\n", digit);*/
-	newnode->n = digit;
+	num = atoi(digit);/*printf("%s\n", digit);*/
+	newnode->n = num;
 	newnode->next = *stack;
 	newnode->prev = NULL;
 	if (*stack != NULL)
