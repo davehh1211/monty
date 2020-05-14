@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -39,10 +40,14 @@ typedef struct instruction_s
 extern int num;
 
 void *_calloc(unsigned int nmemb, unsigned int size);
-void optacodevalid(char *opcode, unsigned int line_number,
-stack_t **stack);
+void optacodevalid(char *opcode, unsigned int line_number, stack_t **stack);
 void o_push(stack_t **stack, unsigned int line_number);
 void o_pall(stack_t **stack, unsigned int line_number);
 void o_pop(stack_t **stack, unsigned int line_number);
+void free_dlistint(stack_t *head);
+void fileread(char *argv, stack_t **stack);
+int numberchecker(char *str);
+void o_nop(stack_t **stack, unsigned int line_number);
+
 
 #endif

@@ -9,11 +9,12 @@
 void optacodevalid(char *opcode, unsigned int line_number,
 stack_t **stack)
 {
-	/*stack_t **stack = NULL;*/
 	int i = 0, flag = 0;
 	instruction_t opexist[] = {
 			{"push", o_push},
 			{"pall", o_pall},
+			{"pop", o_pop},
+			{"nop", o_pop},
 			{NULL, NULL}
 		};
 
@@ -28,7 +29,9 @@ stack_t **stack)
 	if (flag == 0)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n",
-		line_number, opcode); /*<> */
+		line_number, opcode);
+		free(opcode);
+		/*free_dlistint(stack);*/
 		exit(EXIT_FAILURE);
 	}
 }
