@@ -12,6 +12,8 @@ void opcodevalid(char *opcode, unsigned int line_number, stack_t **stack)
 	instruction_t opexist[] = {
 			{"push", o_push},
 			{"pall", o_pall},
+			{"pop", o_pop},
+			{"nop", o_pop},
 			{NULL, NULL}
 		};
 
@@ -25,8 +27,10 @@ void opcodevalid(char *opcode, unsigned int line_number, stack_t **stack)
 	}
 	if (flag == 0)
 	{
-		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n",
-		line_number, opcode); /*<> */
+		fprintf(stderr, "L%d: unknown instruction %s\n",
+		line_number, opcode);
+		free(opcode);
+		/*free_dlistint(stack);*/
 		exit(EXIT_FAILURE);
 	}
 }

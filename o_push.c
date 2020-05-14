@@ -9,19 +9,22 @@
 void o_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newnode;
+	char *digit;
+	int num;
 
-	if (num == -1)
+	digit = strtok(NULL, "\t\n ");
+	if (digit == NULL || numberchecker(digit))
 	{
-		dprintf(STDERR_FILENO, "L%u: usage: push integer", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	/*printf("%d\n", num);*/
+	num = atoi(digit);/*printf("%s\n", digit);*/
 	newnode->n = num;
 	newnode->next = *stack;
 	newnode->prev = NULL;
@@ -30,4 +33,27 @@ void o_push(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = newnode;
 	}
 	*stack = newnode;
+}
+/**
+ * numberchecker - checks if the string is a digit
+ * @str: string to be checked
+ * Return: 
+ */
+int numberchecker(char *str)
+{
+	unsigned int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '-')
+		{
+			i++;
+			continue;
+		}
+		if (isdigit(str[i]) == 0)
+			return (1);
+		i++;
+	}
+	return (0);
 }

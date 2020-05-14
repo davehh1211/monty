@@ -8,12 +8,14 @@
 void o_pall(stack_t **stack, unsigned int line_number)
 {
 	size_t i = 0;
+	stack_t *tmp = *stack;
 
 	(void)line_number;
 
-	for (i = 0; *stack != NULL; i++)
+	for (i = 0; tmp != NULL; i++)
 	{
-		printf("%d\n", (*stack)->n);
-		*stack = (*stack)->next;
+		fprintf(stdout, "%d\n", tmp->n);
+		tmp = tmp->next;
 	}
+
 }
