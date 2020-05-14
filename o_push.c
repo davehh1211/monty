@@ -13,7 +13,7 @@ void o_push(stack_t **stack, unsigned int line_number)
 	int num;
 
 	digit = strtok(NULL, "\t\n ");
-	if (digit == NULL)
+	if (digit == NULL || numberchecker(digit))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
@@ -33,4 +33,27 @@ void o_push(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = newnode;
 	}
 	*stack = newnode;
+}
+/**
+ * numberchecker - checks if the string is a digit
+ * @str: string to be checked
+ * Return: 
+ */
+int numberchecker(char *str)
+{
+	unsigned int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '-')
+		{
+			i++;
+			continue;
+		}
+		if (isdigit(str[i]) == 0)
+			return (1);
+		i++;
+	}
+	return (0);
 }
