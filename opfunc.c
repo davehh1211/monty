@@ -21,6 +21,9 @@ stack_t **stack)
 			{"sub", o_sub},
 			{"div", o_div},
 			{"mul", o_mul},
+			{"mod", o_mod},
+			{"pchar", o_pchar},
+			{"pstr", o_pstr},
 			{NULL, NULL}
 		};
 

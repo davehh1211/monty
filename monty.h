@@ -69,5 +69,8 @@ void o_add(stack_t **stack, unsigned int line_number);
 void o_sub(stack_t **stack, unsigned int line_number);
 void o_div(stack_t **stack, unsigned int line_number);
 void o_mul(stack_t **stack, unsigned int line_number);
+void o_mod(stack_t **stack, unsigned int line_number);
+void o_pchar(stack_t **stack, unsigned int line_number);
+void o_pstr(stack_t **stack, unsigned int line_number);
 
 #endif
