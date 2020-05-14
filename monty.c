@@ -8,7 +8,6 @@ free_t var_global;
  */
 int main(int argc, char *argv[])
 {
-
 	stack_t *stack = NULL;
 
 	if (argc != 2)
@@ -60,9 +59,14 @@ void fileread(char *argv, stack_t **stack)
 	while (getline(&var_global.buffer, &len, var_global.file) != -1)
 	{
 		opcode = strtok(var_global.buffer, "\t\n ");
+		if (opcode[0] == '#' || opcode == NULL)
+		{
+			line_number++;
+			continue;
+		}
 		line_number++;
-		if (opcode != NULL && opcode[0] != '#')
-			optacodevalid(opcode, line_number, stack); /**/
+		if (opcode != NULL)
+			optacodevalid(opcode, line_number, stack);
 	}
 	free(var_global.buffer);
 	fclose(var_global.file);
