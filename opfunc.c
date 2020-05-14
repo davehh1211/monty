@@ -18,6 +18,9 @@ stack_t **stack)
 			{"swap", o_swap},
 			{"add", o_add},
 			{"nop", o_nop},
+			{"sub", o_sub},
+			{"div", o_div},
+			{"mul", o_mul},
 			{NULL, NULL}
 		};
 
