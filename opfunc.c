@@ -27,7 +27,7 @@ stack_t **stack)
 	}
 	if (flag == 0)
 	{
-		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n",
+		fprintf(stderr, "L%d: unknown instruction %s\n",
 		line_number, opcode); /*<> */
 		exit(EXIT_FAILURE);
 	}

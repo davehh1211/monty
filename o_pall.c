@@ -13,7 +13,7 @@ void o_pall(stack_t **stack, unsigned int line_number)
 
 	for (i = 0; *stack != NULL; i++)
 	{
-		printf("%d\n", (*stack)->n);
+		fprintf(stdout, "%d\n", (*stack)->n);
 		*stack = (*stack)->next;
 	}
 }
