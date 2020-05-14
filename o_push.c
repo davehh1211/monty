@@ -28,7 +28,7 @@ void o_push(stack_t **stack, unsigned int line_number)
 		free_dlistint(*stack);
 		exit(EXIT_FAILURE);
 	}
-	num = atoi(digit);
+	num = atoi(digit);/*printf("%s\n", digit);*/
 	newnode->n = num;
 	newnode->next = *stack;
 	newnode->prev = NULL;
