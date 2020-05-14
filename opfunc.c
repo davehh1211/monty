@@ -30,8 +30,9 @@ stack_t **stack)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n",
 		line_number, opcode);
-		free(opcode);
-		/*free_dlistint(stack);*/
+		free(var_global.buffer);
+		free_dlistint(*stack);
+		fclose(var_global.file);
 		exit(EXIT_FAILURE);
 	}
 }

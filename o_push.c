@@ -16,12 +16,16 @@ void o_push(stack_t **stack, unsigned int line_number)
 	if (digit == NULL || numberchecker(digit))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		free_dlistint(*stack);
+		fclose(var_global.file);
+		free(var_global.buffer);
 		exit(EXIT_FAILURE);
 	}
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_dlistint(*stack);
 		exit(EXIT_FAILURE);
 	}
 	num = atoi(digit);/*printf("%s\n", digit);*/
@@ -37,7 +41,7 @@ void o_push(stack_t **stack, unsigned int line_number)
 /**
  * numberchecker - checks if the string is a digit
  * @str: string to be checked
- * Return: 
+ * Return: nothing
  */
 int numberchecker(char *str)
 {

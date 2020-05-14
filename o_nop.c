@@ -5,7 +5,6 @@
  * @line_number: the line of the file read
  * Return: nothing
  */
-
 void o_nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
