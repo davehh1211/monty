@@ -13,10 +13,10 @@ void o_pstr(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	while (tmp)
 	{
-		c = tmp->n;		
+		c = tmp->n;
 		if (isascii(c) == 0 || c == 0)
 			break;
-		fprintf(stdout, "%c", c);	
+		fprintf(stdout, "%c", c);
 		tmp = tmp->next;
 	}
 	putchar('\n');
