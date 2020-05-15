@@ -11,10 +11,13 @@ void o_rotr(stack_t **stack, unsigned int line_number)
 
 	(void)line_number;
 
-	while ((*stack)->next != NULL)
-		*stack = (*stack)->next;
-	(*stack)->prev->next = NULL;
-	(*stack)->prev = NULL;
-	tmp1->prev = *stack;
-	(*stack)->next = tmp1;
+	if ((*stack)->next != NULL || *stack != NULL || stack != NULL)
+	{
+		while ((*stack)->next != NULL)
+			*stack = (*stack)->next;
+		(*stack)->prev->next = NULL;
+		(*stack)->prev = NULL;
+		tmp1->prev = *stack;
+		(*stack)->next = tmp1;
+	}
 }
