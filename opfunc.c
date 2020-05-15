@@ -24,6 +24,8 @@ stack_t **stack)
 			{"mod", o_mod},
 			{"pchar", o_pchar},
 			{"pstr", o_pstr},
+			{"rotl", o_rotl},
+			{"rotr", o_rotr},
 			{NULL, NULL}
 		};
 
