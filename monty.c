@@ -59,13 +59,8 @@ void fileread(char *argv, stack_t **stack)
 	while (getline(&var_global.buffer, &len, var_global.file) != -1)
 	{
 		opcode = strtok(var_global.buffer, "\t\n ");
-		if (opcode[0] == '#' || opcode == NULL)
-		{
-			line_number++;
-			continue;
-		}
 		line_number++;
-		if (opcode != NULL)
+		if (opcode != NULL && opcode[0] != '#')
 			optacodevalid(opcode, line_number, stack);
 	}
 	free(var_global.buffer);
