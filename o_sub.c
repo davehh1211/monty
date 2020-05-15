@@ -8,7 +8,7 @@
 void o_sub(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
-	
+
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
@@ -17,7 +17,6 @@ void o_sub(stack_t **stack, unsigned int line_number)
 		free(var_global.buffer);
 		exit(EXIT_FAILURE);
 	}
-	
 	tmp->next->n -= tmp->n;
 	*stack = tmp->next;
 	(*stack)->prev = NULL;

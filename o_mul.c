@@ -17,7 +17,6 @@ void o_mul(stack_t **stack, unsigned int line_number)
 		free(var_global.buffer);
 		exit(EXIT_FAILURE);
 	}
-	
 	tmp->next->n *= tmp->n;
 	*stack = tmp->next;
 	(*stack)->prev = NULL;
