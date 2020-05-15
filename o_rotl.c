@@ -11,11 +11,14 @@ void o_rotl(stack_t **stack, unsigned int line_number)
 
 	(void)line_number;
 
-	*stack = (*stack)->next;
-	while (tmp1->next != NULL)
-		tmp1 = tmp1->next;
-	(*stack)->prev->next = NULL;
-	tmp1->next = (*stack)->prev;
-	(*stack)->prev->prev = tmp1;
-	(*stack)->prev = NULL;
+	if ((*stack)->next != NULL || *stack != NULL || stack != NULL)
+	{
+		*stack = (*stack)->next;
+		while (tmp1->next != NULL)
+			tmp1 = tmp1->next;
+		(*stack)->prev->next = NULL;
+		tmp1->next = (*stack)->prev;
+		(*stack)->prev->prev = tmp1;
+		(*stack)->prev = NULL;
+	}
 }
